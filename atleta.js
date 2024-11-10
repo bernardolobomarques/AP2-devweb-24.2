@@ -41,33 +41,47 @@ const achaCookie = (chave) => {
 
 
 const montaPagina = (dados) => {
-    const body = document.body;
-    body.innerHTML = '';
+    const container = document.getElementById('container');
+    container.innerHTML = '';
     
     const nome = document.createElement('h1');
     nome.innerHTML = dados.nome;
-    body.appendChild(nome);
+    nome.className = 'content';
+    container.appendChild(nome);
 
     const imagem = document.createElement('img');
     imagem.alt = 'imagem do atleta';
     imagem.src = dados.imagem;
-    body.appendChild(imagem);
+    imagem.className = 'content';
+    container.appendChild(imagem);
 
     const nJogos = document.createElement('p');
     nJogos.innerText = dados.n_jogos;
-    body.appendChild(nJogos);
+    nJogos.className = 'content';
+    container.appendChild(nJogos);
 
     const elenco = document.createElement('p');
     elenco.innerText = dados.elenco;
-    body.appendChild(elenco);
+    elenco.className = 'content';
+    container.appendChild(elenco);
 
     const noTimeDesde = document.createElement('p');
     noTimeDesde.innerText = dados.no_botafogo_desde;
-    body.appendChild(noTimeDesde);
+    noTimeDesde.className = 'content';
+    container.appendChild(noTimeDesde);
 
     const posicao = document.createElement('p');
     posicao.innerText = dados.posicao;
-    body.appendChild(posicao);
+    posicao.className = 'content';
+    container.appendChild(posicao);
+
+    const botao = document.createElement('button');
+    botao.className = 'botao-voltar content';
+    botao.innerText = 'Voltar';
+    botao.onclick = () => {
+        window.location.href = 'index.html';
+    }
+    container.appendChild(botao);
 }
 
 if(sessionStorage.getItem("logado")){
@@ -75,7 +89,7 @@ if(sessionStorage.getItem("logado")){
         (r) => montaPagina(r)
     );
 } else {
-    document.body.innerHTML = "<h1>Você precisa estar logado para ter acesso</h1>"
+    document.body.innerHTML = "<h1 class='sem-autorizacao'>Você precisa estar logado para ter acesso</h1>"
 }
 
 
