@@ -133,6 +133,24 @@ const logadoSucesso = () => {
     divBotoes.appendChild(criaBotoesTimes());
     // 
     setTimeout(configuraBotoesTimes, 300);
+
+    // Attach search input event listener
+    const input = document.getElementById('busca');
+    input.addEventListener('input', () => {
+        const termo = input.value.toLowerCase();
+        const cartoes = container.getElementsByTagName('article');
+
+        for (let i = 0; i < cartoes.length; i++) {
+            const cartao = cartoes[i];
+            const nome = cartao.getElementsByTagName('h1')[0].innerText.toLowerCase();
+
+            if (nome.includes(termo)) {
+                cartao.style.display = 'block';
+            } else {
+                cartao.style.display = 'none';
+            }
+        }
+    });
 }
 
 const manipulaBotaoLogin = () => {
@@ -174,20 +192,4 @@ document.getElementById("logout").onclick = () => {
     document.getElementById("botao-login").style.display = "inline";
     document.getElementById("senha").style.display = "inline";
     document.getElementById("p-senha").style.display = "block";
-}
-
-//BUSCA
-document.getElementById("busca").oninput = (e) => {
-    const busca = e.target.value.toLowerCase();
-    const cartoes = container.querySelectorAll("article");
-
-    cartoes.forEach(
-        (cartao) => {
-            if (cartao.nome.innerText.toLowerCase().includes(busca)) {
-                cartao.style.display = "block";
-            } else {
-                cartao.style.display = "none";
-            }
-        }
-    )
 }
