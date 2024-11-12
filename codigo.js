@@ -1,5 +1,8 @@
 const url = "https://botafogo-atletas.mange.li/2024-1/"
 
+const idMax = 60; // Manualmente checar o ultimo atleta
+sessionStorage.setItem('idMax', idMax);
+
 const container = document.getElementById("container");
 const divBotoes = document.getElementById("div-botoes");
 
@@ -19,6 +22,7 @@ const manipulaCLick = (e) => {
 
     //Session Storage
     sessionStorage.setItem('id', id);
+    
     sessionStorage.setItem('dados', JSON.stringify(e.currentTarget.dataset));
 
     window.location.href = url; 

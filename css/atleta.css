@@ -29,6 +29,12 @@ div.container {
     margin-top: 0;
 }
 
+.texto-sem-autorizacao {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
 p {
     margin: 5px 0;
 }
