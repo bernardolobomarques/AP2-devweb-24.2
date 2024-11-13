@@ -197,3 +197,4 @@ document.getElementById("logout").onclick = () => {
     document.getElementById("senha").style.display = "inline";
     document.getElementById("p-senha").style.display = "block";
 }
+

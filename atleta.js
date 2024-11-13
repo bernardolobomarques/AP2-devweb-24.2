@@ -1,17 +1,3 @@
-/* 
-Elenco x
-
-imagem x
-n jogos x
-nome x
-posicao
-naturalidade
-nascimento
-altura
-no time desde x
-detalhes
-*/
-
 const params = new URLSearchParams(window.location.search);
 
 const id = parseInt(params.get("id"));
@@ -54,37 +40,54 @@ const montaPagina = async (dados) => {
         } else {
             const container = document.getElementById('container');
             container.innerHTML = '';
-            
+
             const nome = document.createElement('h1');
             nome.innerHTML = dados.nome;
-            nome.className = 'content';
+            nome.className = 'nome-content';
             container.appendChild(nome);
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            container.appendChild(card);
+
+            const infoContainer = document.createElement('div');
+            infoContainer.className = 'info-container';
+            card.appendChild(infoContainer);
 
             const imagem = document.createElement('img');
             imagem.alt = 'imagem do atleta';
             imagem.src = dados.imagem;
-            imagem.className = 'content';
-            container.appendChild(imagem);
+            imagem.className = 'imagem';
+            infoContainer.appendChild(imagem);
+
+            const descricao = document.createElement('p');
+            descricao.innerHTML = dados.detalhes;
+            descricao.className = 'content-descricao';
+            infoContainer.appendChild(descricao);
+
+            const statsContainer = document.createElement('div');
+            statsContainer.className = 'stats-container';
+            card.appendChild(statsContainer);
 
             const nJogos = document.createElement('p');
-            nJogos.innerText = dados.n_jogos;
-            nJogos.className = 'content';
-            container.appendChild(nJogos);
+            nJogos.innerText = `Número de jogos: ${dados.n_jogos}`;
+            nJogos.className = 'stats';
+            statsContainer.appendChild(nJogos);
 
             const elenco = document.createElement('p');
-            elenco.innerText = dados.elenco;
-            elenco.className = 'content';
-            container.appendChild(elenco);
+            elenco.innerText = `Elenco: ${dados.elenco}`;
+            elenco.className = 'stats';
+            statsContainer.appendChild(elenco);
 
             const noTimeDesde = document.createElement('p');
-            noTimeDesde.innerText = dados.no_botafogo_desde;
-            noTimeDesde.className = 'content';
-            container.appendChild(noTimeDesde);
+            noTimeDesde.innerText = `No time desde: ${dados.no_botafogo_desde}`;
+            noTimeDesde.className = 'stats';
+            statsContainer.appendChild(noTimeDesde);
 
             const posicao = document.createElement('p');
-            posicao.innerText = dados.posicao;
-            posicao.className = 'content';
-            container.appendChild(posicao);
+            posicao.innerText = `Posição: ${dados.posicao}`;
+            posicao.className = 'stats';
+            statsContainer.appendChild(posicao);
 
             const botao = document.createElement('button');
             botao.className = 'botao-voltar content';
