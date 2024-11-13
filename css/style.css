@@ -1,46 +1,261 @@
+:root {
+    --background-color: #d3d3d3;
+    --card-background-color: #a9a9a9;
+    --button-hover-color: #555;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+}
+
 .container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center;
-    gap: 1rem;
+    margin: 0 auto;
+    place-items: center;
 }
 
-.container > article {
-    width: 20rem;
-    border: solid #333 1px;
-    border-radius: 10px;
-    margin: .5rem;
-    padding: .3rem;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+#divBotoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
 }
 
-.container > article:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.botao-selecao {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
 }
 
-.container img {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.dropdown {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-.container h1 {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0.5rem 0;
+#busca {
+    width: 95%;
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#container {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+}
+
+article {
+    background-color: #a9a9a9;
     text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    transition: transform 0.2s;
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.55);
 }
 
-.container p {
-    font-size: 1rem;
-    color: #666;
-    padding: 0 1rem;
-    text-align: justify;
+img {
+    max-width: 270px;
+    border-radius: 10px;
+    margin: 20px 5px;
+    margin-top: 0px;
 }
 
-.controle {
-    margin-bottom: 3vh;
+article:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    display: flex;
+    color: #000;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 85px;
+}
+
+#section-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#card-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: var(--card-background-color);
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.55);
+    gap: 10px;
+}
+
+#senha {
+    width: 150px;
+    padding: 5px;
+    margin: 5px auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#teamSelection button {
+    width: 150px;
+    padding: 10px;
+    margin: 10px 1px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#botaoLogin {
+    width: 70px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#logout {
+    width: 70px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-voltar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+#teamSelection button:hover, #logout:hover, #botaoLogin:hover, .botao-voltar:hover {
+    background-color: var(--button-hover-color);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    article {
+        width: 300px;
+    }
+    .dropdown {
+        width: 110%;
+        padding: 5px;
+    }
+    #busca {
+        width: 101%;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    article {
+        width: 300px;
+    }
+    .dropdown {
+        width: 95%;
+    }
+    #busca {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+    #container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    article {
+        width: 300px;
+    }
+    .dropdown {
+        width: 95%;
+    }
+    #busca {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1301px) {
+    #container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    article {
+        width: 236px;
+    }
+
+    img {
+        width: 216px;
+    }
+    .dropdown {
+        width: 95%;
+    }
+    #busca {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #card-login {
+        width: 300px;
+        height: 300px;
+    }
+    #senha, #botaoLogin {
+        width: 200px;
+        font-size: 18px;
+    }
 }

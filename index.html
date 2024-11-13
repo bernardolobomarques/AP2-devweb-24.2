@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Ap2</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- Usei o ícone disponibilizado no repositório do professor -->
-    <link rel="icon" href="./media/escudo.png" type="image/x-icon">
-    <script src="md5-min.js"></script>
-    <script src="sha256.js"></script>
+    <title>Botafogo</title>
+
+    <link rel="icon" href="media/escudo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="sha256.js" defer></script>
     <script src="codigo.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p id="p-senha">a senha é: botafogo</p>
-    <input type="password" id="senha" placeholder="Digite sua senha">
-    <button id="botao-login">Tentar</button>
-    <button id="logout">Logout</button>
-    <div id="div-botoes" class="container"></div>
+    <button id="logout" class="hidden">Logout</button>
+    <section id="section-login">
+        <div id="card-login">
+            <p id="mostraSenha">Senha: botafogo</p>
+            <input type="password" id="senha" placeholder="Digite sua senha">
+            <button id="botaoLogin">Entrar</button>
+        </div>
+    </section>
+    <div id="divBotoes" class="container"></div>
     <div id="container" class="container"></div>
 </body>
 </html>
